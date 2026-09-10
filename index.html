@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garuda Spike VC - Volleyball Club</title>
+    <!-- Menghubungkan ke File CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navigasi -->
+    <header>
+        <div class="logo">
+            <h1>GARUDA SPIKE VC</h1>
+        </div>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#pemain">Pemain</a>
+            <a href="#prestasi">Prestasi</a>
+        </nav>
+    </header>
+
+    <!-- Banner Utama -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Garuda Spike Volleyball Club</h2>
+            <p>Klub Bola Voli Profesional — Menjunjung Tinggi Sportivitas dan Prestasi</p>
+            <a href="#pemain" class="btn">Lihat Skuad</a>
+        </div>
+    </section>
+
+    <!-- Skuad Pemain -->
+    <section id="pemain" class="container">
+        <h2 class="section-title">Daftar Skuad Pemain</h2>
+        
+        <!-- Filter Posisi Pemain (Dikelola oleh JavaScript) -->
+        <div class="filter-btn">
+            <button class="active" onclick="filterPemain('all', this)">Semua</button>
+            <button onclick="filterPemain('Spiker', this)">Spiker</button>
+            <button onclick="filterPemain('Setter', this)">Setter</button>
+            <button onclick="filterPemain('Libero', this)">Libero</button>
+        </div>
+
+        <div class="grid-players" id="playerList">
+            <div class="card Spiker">
+                <div class="card-avatar">🏐</div>
+                <h3>#07 - Rian Anggara</h3>
+                <span class="badge">Outside Spiker</span>
+                <p>Tinggi: 188 cm</p>
+            </div>
+            <div class="card Setter">
+                <div class="card-avatar">🏐</div>
+                <h3>#10 - Dimas Pratama</h3>
+                <span class="badge">Setter</span>
+                <p>Tinggi: 182 cm</p>
+            </div>
+            <div class="card Libero">
+                <div class="card-avatar">🏐</div>
+                <h3>#01 - Farhan Halim</h3>
+                <span class="badge">Libero</span>
+                <p>Tinggi: 175 cm</p>
+            </div>
+            <div class="card Spiker">
+                <div class="card-avatar">🏐</div>
+                <h3>#12 - Doni Haryono</h3>
+                <span class="badge">Opposite Spiker</span>
+                <p>Tinggi: 190 cm</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Klub -->
+    <section id="prestasi" class="container">
+        <h2 class="section-title">Prestasi & Penghargaan</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Kejuaraan</th>
+                        <th>Kategori</th>
+                        <th>Peringkat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025</td>
+                        <td>Liga Voli Nasional (Livoli)</td>
+                        <td>Pria Utama</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>Kejuaraan Antar Klub Regional</td>
+                        <td>Pria Utama</td>
+                        <td>Runner-Up 🥈</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>Piala Gubernur Cup</td>
+                        <td>Terbuka</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Garuda Spike Volleyball Club. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Menghubungkan ke File JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garuda Spike VC - Volleyball Club</title>
+    <!-- Menghubungkan ke File CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navigasi -->
+    <header>
+        <div class="logo">
+            <h1>GARUDA SPIKE VC</h1>
+        </div>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#pemain">Pemain</a>
+            <a href="#prestasi">Prestasi</a>
+        </nav>
+    </header>
+
+    <!-- Banner Utama -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Garuda Spike Volleyball Club</h2>
+            <p>Klub Bola Voli Profesional — Menjunjung Tinggi Sportivitas dan Prestasi</p>
+            <a href="#pemain" class="btn">Lihat Skuad</a>
+        </div>
+    </section>
+
+    <!-- Skuad Pemain -->
+    <section id="pemain" class="container">
+        <h2 class="section-title">Daftar Skuad Pemain</h2>
+        
+        <!-- Filter Posisi Pemain (Dikelola oleh JavaScript) -->
+        <div class="filter-btn">
+            <button class="active" onclick="filterPemain('all', this)">Semua</button>
+            <button onclick="filterPemain('Spiker', this)">Spiker</button>
+            <button onclick="filterPemain('Setter', this)">Setter</button>
+            <button onclick="filterPemain('Libero', this)">Libero</button>
+        </div>
+
+        <div class="grid-players" id="playerList">
+            <div class="card Spiker">
+                <div class="card-avatar">🏐</div>
+                <h3>#07 - Rian Anggara</h3>
+                <span class="badge">Outside Spiker</span>
+                <p>Tinggi: 188 cm</p>
+            </div>
+            <div class="card Setter">
+                <div class="card-avatar">🏐</div>
+                <h3>#10 - Dimas Pratama</h3>
+                <span class="badge">Setter</span>
+                <p>Tinggi: 182 cm</p>
+            </div>
+            <div class="card Libero">
+                <div class="card-avatar">🏐</div>
+                <h3>#01 - Farhan Halim</h3>
+                <span class="badge">Libero</span>
+                <p>Tinggi: 175 cm</p>
+            </div>
+            <div class="card Spiker">
+                <div class="card-avatar">🏐</div>
+                <h3>#12 - Doni Haryono</h3>
+                <span class="badge">Opposite Spiker</span>
+                <p>Tinggi: 190 cm</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Klub -->
+    <section id="prestasi" class="container">
+        <h2 class="section-title">Prestasi & Penghargaan</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Kejuaraan</th>
+                        <th>Kategori</th>
+                        <th>Peringkat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025</td>
+                        <td>Liga Voli Nasional (Livoli)</td>
+                        <td>Pria Utama</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>Kejuaraan Antar Klub Regional</td>
+                        <td>Pria Utama</td>
+                        <td>Runner-Up 🥈</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>Piala Gubernur Cup</td>
+                        <td>Terbuka</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Garuda Spike Volleyball Club. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Menghubungkan ke File JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
