@@ -497,4 +497,558 @@
             border-radius: 12px;
             padding: 20px;
             border-left: 5px solid var(--accent);
-            box-shadow: 0 4px 10px rgba(0,0,0,
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .match-date {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .match-teams {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .match-location {
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        /* Basecamp & Sponsor Section */
+        .basecamp-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .sponsors {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        .sponsor-item {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        footer .address-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-volleyball logo-icon"></i>
+            <h1>VIBRA JUNIOR VC</h1>
+        </div>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#spesial">International</a>
+            <a href="#karakter">Karakter & Staff</a>
+            <a href="#prestasi">Juara & Trofi</a>
+            <a href="#jadwal">Jadwal Laga</a>
+            <a href="#basecamp">Basecamp</a>
+        </nav>
+    </header>
+
+    <!-- Banner Utama -->
+    <section id="home" class="hero">
+        <div class="hero-badge">
+            <i class="fa-solid fa-fire"></i> Laga Spesial vs Red Sparks 🇰🇷
+        </div>
+        <h2>VIBRA JUNIOR VC</h2>
+        <div class="subtitle">📍 Sendang Retno, Kec. Sendang Agung, Kab. Lampung Tengah</div>
+        <p>Klub Bola Voli Pembinaan Usia Muda Berstandar Profesional — Menjelajah Laga Internasional dan Mencetak Bintang Masa Depan Bola Voli Indonesia.</p>
+    </section>
+
+    <!-- Statistics Counter Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>12+</h3>
+            <p>Gelar Juara & Trofi</p>
+        </div>
+        <div class="stat-item">
+            <h3>94%</h3>
+            <p>Rasio Kemenangan 2025</p>
+        </div>
+        <div class="stat-item">
+            <h3>10</h3>
+            <p>Pemain Utama & Cadangan</p>
+        </div>
+        <div class="stat-item">
+            <h3>4</h3>
+            <p>Pelatih & Staff Official</p>
+        </div>
+    </div>
+
+    <!-- Highlight Pengalaman lawan Red Sparks -->
+    <section id="spesial" class="container">
+        <div class="highlight-box">
+            <div class="highlight-content">
+                <h3><i class="fa-solid fa-earth-asia"></i> Laga Spesial Internasional: vs Red Sparks (Korea Selatan)</h3>
+                <p>
+                    Pencapaian monumental bagi <strong>Vibra Junior VC</strong> ketika melakoni laga ekshibisi internasional melawan raksasa V-League Korea Selatan, <strong>Daejeon JungKwanJang Red Sparks</strong>. Pertandingan ini menjadi pengalaman emas bagi talenta muda Lampung Tengah dalam mengasah taktik dan mentalitas tingkat dunia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Karakter Pemain & Staff Official -->
+    <section id="karakter" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Skuad Karakter & Official Tim</h2>
+            <p style="margin-top: 10px; color: #64748b;">Klik pada kartu untuk melihat profil lengkap dan statistik mendalam</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterKarakter('all', this)">Semua Skuad</button>
+            <button class="filter-btn" onclick="filterKarakter('Spiker', this)">Spiker</button>
+            <button class="filter-btn" onclick="filterKarakter('Setter', this)">Setter</button>
+            <button class="filter-btn" onclick="filterKarakter('Libero', this)">Libero</button>
+            <button class="filter-btn" onclick="filterKarakter('Middle', this)">Middle Blocker</button>
+            <button class="filter-btn" onclick="filterKarakter('Official', this)">Pelatih & Official</button>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid-characters" id="characterGrid">
+            
+            <!-- Vaula Rifhatir -->
+            <div class="character-card Spiker" onclick="openModal('vaula')">
+                <div class="character-avatar">🏐</div>
+                <h3>Vaula Rifhatir</h3>
+                <span class="badge-role">Outside Spiker / Kapten</span>
+                <br>
+                <span class="badge-award">🏆 MVP / Best Player</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Savenna -->
+            <div class="character-card Setter" onclick="openModal('savenna')">
+                <div class="character-avatar">🏐</div>
+                <h3>Savenna</h3>
+                <span class="badge-role">Setter Utama</span>
+                <br>
+                <span class="badge-award">⭐ Best Setter 2025</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Rasya Ahmad -->
+            <div class="character-card Libero" onclick="openModal('rasya')">
+                <div class="character-avatar">🏐</div>
+                <h3>Rasya Ahmad</h3>
+                <span class="badge-role">Libero</span>
+                <br>
+                <span class="badge-award">🛡️ Best Defender</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Alif Rizhqul -->
+            <div class="character-card Spiker" onclick="openModal('alif')">
+                <div class="character-avatar">🏐</div>
+                <h3>Alif Rizhqul</h3>
+                <span class="badge-role">Opposite Spiker</span>
+                <br>
+                <span class="badge-award">🚀 Top Server</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Bagas Setiawan -->
+            <div class="character-card Middle" onclick="openModal('bagas')">
+                <div class="character-avatar">🏐</div>
+                <h3>Bagas Setiawan</h3>
+                <span class="badge-role">Middle Blocker</span>
+                <br>
+                <span class="badge-award">🧱 Best Blocker</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Fajar Nusantara -->
+            <div class="character-card Spiker" onclick="openModal('fajar')">
+                <div class="character-avatar">🏐</div>
+                <h3>Fajar Nusantara</h3>
+                <span class="badge-role">Outside Spiker</span>
+                <br>
+                <span class="badge-award">⚡ Rising Star</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Coach Hendra Wijaya -->
+            <div class="character-card Official" onclick="openModal('coach_hendra')">
+                <div class="character-avatar">📋</div>
+                <h3>Coach Hendra</h3>
+                <span class="badge-role">Head Coach</span>
+                <br>
+                <span class="badge-award">🥇 Pelatih Terbaik</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Dr. Maya Indah -->
+            <div class="character-card Official" onclick="openModal('dr_maya')">
+                <div class="character-avatar">🏥</div>
+                <h3>Dr. Maya Indah</h3>
+                <span class="badge-role">Tim Fisioterapi / Medis</span>
+                <br>
+                <span class="badge-award">⚕️ Tim Dokter Official</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+            <!-- Roni Kurniawan -->
+            <div class="character-card Official" onclick="openModal('roni')">
+                <div class="character-avatar">💼</div>
+                <h3>Roni Kurniawan</h3>
+                <span class="badge-role">Manager Tim</span>
+                <br>
+                <span class="badge-award">📌 Manajemen Klub</span>
+                <div class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Klik Detail</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal Dialog Interactive Popup -->
+    <div class="modal-overlay" id="characterModal">
+        <div class="modal-card">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <div class="modal-avatar" id="modalAvatar">🏐</div>
+                <h3 id="modalName">Nama Karakter</h3>
+                <span class="badge-role" id="modalRole">Posisi</span>
+            </div>
+            <div class="modal-stats-grid" id="modalStats">
+                <!-- Stats injected via JS -->
+            </div>
+            <p class="modal-bio" id="modalBio">Biografi singkat akan ditampilkan di sini.</p>
+        </div>
+    </div>
+
+    <!-- Section Prestasi Lengkap -->
+    <section id="prestasi" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Lemari Kejuaraan & Prestasi</h2>
+            <p style="margin-top: 10px; color: #64748b;">Daftar gelar resmi yang diraih Vibra Junior VC</p>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Kejuaraan / Pertandingan</th>
+                        <th>Kategori</th>
+                        <th>Hasil Akhir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="gold-row">
+                        <td>2026</td>
+                        <td>Friendly Match vs Red Sparks (Korea Selatan) 🇰🇷</td>
+                        <td>International Exhibition</td>
+                        <td>Pengalaman Emas ⭐</td>
+                    </tr>
+                    <tr class="gold-row">
+                        <td>2025</td>
+                        <td>Kejuaraan Nasional Junior (Kejurnas U-19)</td>
+                        <td>Nasional U-19</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td>Lampung Tengah Volleyball Championship</td>
+                        <td>Antar Klub Kab.</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td>Kejurda Voli Pantai Sumatra</td>
+                        <td>Regional Usia Muda</td>
+                        <td>Runner-Up 🥈</td>
+                    </tr>
+                    <tr class="gold-row">
+                        <td>2024</td>
+                        <td>Kejuaraan Antar Klub Regional Sumatra</td>
+                        <td>Regional Usia Muda</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>Piala Bupati Lampung Tengah</td>
+                        <td>Terbuka U-18</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>Livoli Divisi Utama Junior</td>
+                        <td>Nasional U-18</td>
+                        <td>Juara 3 🥉</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>Piala Gubernur Lampung Cup</td>
+                        <td>Provinsi U-17</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>Kejurda Lampung Usia Dini</td>
+                        <td>Provinsi U-15</td>
+                        <td>Juara 1 🏆</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section Jadwal Laga -->
+    <section id="jadwal" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Jadwal Tanding Mendatang</h2>
+        </div>
+        <div class="schedule-grid">
+            <div class="match-card">
+                <div class="match-date"><i class="fa-regular fa-calendar"></i> 28 OKTOBER 2026</div>
+                <div class="match-teams">Vibra Junior VC vs Jakarta Garuda Muda</div>
+                <div class="match-location">📍 GOR Lampung Central</div>
+            </div>
+            <div class="match-card">
+                <div class="match-date"><i class="fa-regular fa-calendar"></i> 15 NOVEMBER 2026</div>
+                <div class="match-teams">Vibra Junior VC vs Surabaya Remaja VC</div>
+                <div class="match-location">📍 Arena Volleyball Sendang Retno</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Basecamp & Official Sponsor -->
+    <section id="basecamp" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Basecamp & Sponsor Official</h2>
+        </div>
+        <div class="basecamp-card">
+            <div style="font-size: 3rem; color: var(--accent);"><i class="fa-solid fa-location-dot"></i></div>
+            <div style="flex: 1;">
+                <h3 style="color: var(--primary); font-size: 1.3rem;">Markas & Training Center</h3>
+                <p style="color: #475569; margin-top: 5px;">
+                    <strong>Sendang Retno</strong>, Kecamatan Sendang Agung, Kabupaten Lampung Tengah, Provinsi Lampung. Tempat dimana bakat-bakat voli terbaik diasah.
+                </p>
+            </div>
+        </div>
+
+        <div class="sponsors">
+            <div class="sponsor-item">MIKASA</div>
+            <div class="sponsor-item">ASICS</div>
+            <div class="sponsor-item">MIZUNO</div>
+            <div class="sponsor-item">LAMPUNG SPORT</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vibra Junior VC. All Rights Reserved.</p>
+        <p class="address-text">📍 Sendang Retno, Kec. Sendang Agung, Kab. Lampung Tengah</p>
+    </footer>
+
+    <!-- JavaScript Logika & Interaktivitas -->
+    <script>
+        // Database Karakter & Official
+        const characterData = {
+            'vaula': {
+                name: 'Vaula Rifhatir',
+                role: 'Outside Spiker / Kapten Tim',
+                avatar: '🏐',
+                stats: {
+                    'Tinggi': '188 cm',
+                    'Spike Reach': '345 cm',
+                    'Block Reach': '330 cm',
+                    'No. Punggung': '#07'
+                },
+                bio: 'Kapten tim yang berkarisma dengan pukulan spike mematikan. Meraih gelar Most Valuable Player (MVP) pada Kejurnas U-19 tahun 2025.'
+            },
+            'savenna': {
+                name: 'Savenna',
+                role: 'Setter Utama',
+                avatar: '🏐',
+                stats: {
+                    'Tinggi': '182 cm',
+                    'Akurasi Umpan': '98%',
+                    'Jump Serve': '92 km/h',
+                    'No. Punggung': '#10'
+                },
+                bio: 'Otak dari permainan tim dengan umpan-umpan presisi cepat. Dinobatkan sebagai Best Setter pada berbagai turnamen regional.'
+            },
+            'rasya': {
+                name: 'Rasya Ahmad',
+                role: 'Libero',
+                avatar: '🛡️',
+                stats: {
+                    'Tinggi': '175 cm',
+                    'Digs Ratio': '95%',
+                    'Reaksi Refleks': '0.12 detik',
+                    'No. Punggung': '#01'
+                },
+                bio: 'Benteng pertahanan terakhir Vibra Junior VC. Terkenal dengan refleks cepat dan penyelamatan bola-bola sulit.'
+            },
+            'alif': {
+                name: 'Alif Rizhqul',
+                role: 'Opposite Spiker',
+                avatar: '🚀',
+                stats: {
+                    'Tinggi': '190 cm',
+                    'Spike Reach': '348 cm',
+                    'Kecepatan Serve': '105 km/h',
+                    'No. Punggung': '#12'
+                },
+                bio: 'Spiker andalan penyerang kanan dengan servis menukik tajam yang sering menghasilkan Ace beruntun.'
+            },
+            'bagas': {
+                name: 'Bagas Setiawan',
+                role: 'Middle Blocker',
+                avatar: '🧱',
+                stats: {
+                    'Tinggi': '194 cm',
+                    'Block Reach': '340 cm',
+                    'Quick Attack': '90%',
+                    'No. Punggung': '#05'
+                },
+                bio: 'Pemain tertinggi dalam skuad yang menjadi tembok kokoh dalam mematahkan serangan quick lawan.'
+            },
+            'fajar': {
+                name: 'Fajar Nusantara',
+                role: 'Outside Spiker',
+                avatar: '⚡',
+                stats: {
+                    'Tinggi': '185 cm',
+                    'Spike Reach': '338 cm',
+                    'Daya Tahan': 'A+',
+                    'No. Punggung': '#09'
+                },
+                bio: 'Pemain muda penuh bakat yang memiliki variasi serangan cepat dari baris belakang (Pipe attack).'
+            },
+            'coach_hendra': {
+                name: 'Coach Hendra Wijaya',
+                role: 'Head Coach',
+                avatar: '📋',
+                stats: {
+                    'Lisensi': 'A Nasional',
+                    'Pengalaman': '15 Tahun',
+                    'Spesialis': 'Taktik & Mental',
+                    'Status': 'Pelatih Kepala'
+                },
+                bio: 'Arsitek di balik kesuksesan Vibra Junior VC. Dikenal dengan strategi fleksibel dan pembinaan disiplin tinggi.'
+            },
+            'dr_maya': {
+                name: 'Dr. Maya Indah',
+                role: 'Dokter Tim & Fisioterapis',
+                avatar: '🏥',
+                stats: {
+                    'Spesialis': 'Kinesiologi',
+                    'Pengalaman': '8 Tahun',
+                    'Fokus': 'Recovery & Nutrisi',
+                    'Status': 'Official Medis'
+                },
+                bio: 'Memastikan seluruh atlet berada dalam kondisi fisik prima dan menangani pencegahan cedera secara ilmiah.'
+            },
+            'roni': {
+                name: 'Roni Kurniawan',
+                role: 'General Manager',
+                avatar: '💼',
+                stats: {
+                    'Fokus': 'Manajemen Klub',
+                    'Pengalaman': '10 Tahun',
+                    'Relasi': 'Nasional & Korea',
+                    'Status': 'Official Manager'
+                },
+                bio: 'Sosok di balik operasional klub dan penggagas terselenggaranya laga internasional melawan Red Sparks.'
+            }
+        };
+
+        // Filter Karakter
+        function filterKarakter(kategori, element) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const cards = document.querySelectorAll('.character-card');
+            cards.forEach(card => {
+                if (kategori === 'all' || card.classList.contains(kategori)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Buka Pop-up Modal
+        function openModal(id) {
+            const data = characterData[id];
+            if (!data) return;
+
+            document.getElementById('modalAvatar').innerText = data.avatar;
+            document.getElementById('modalName').innerText = data.name;
+            document.getElementById('modalRole').innerText = data.role;
+            document.getElementById('modalBio').innerText = data.bio;
+
+            const statsContainer = document.getElementById('modalStats');
+            statsContainer.innerHTML = '';
+            for (const [key, val] of Object.entries(data.stats)) {
+                statsContainer.innerHTML += `
+                    <div class="modal-stat-item">
+                        <p>${key}</p>
+                        <h4>${val}</h4>
+                    </div>
+                `;
+            }
+
+            document.getElementById('characterModal').style.display = 'flex';
+        }
+
+        // Tutup Pop-up Modal
+        function closeModal() {
+            document.getElementById('characterModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('characterModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
