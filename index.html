@@ -3,28 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibra Junior VC - Volleyball Club</title>
+    <title>Vibra Junior VC - Official Club Website</title>
     
-    <!-- CSS (Gaya Tampilan) -->
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --danger: #ef4444;
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --card-bg: #ffffff;
+            --glass-bg: rgba(15, 23, 42, 0.75);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Keyframes Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.8); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
 
         /* Header & Navigasi */
         header {
-            background-color: #1b365d;
-            color: white;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            color: var(--text-light);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -32,469 +64,437 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        header .logo h1 {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo h1 {
             font-size: 1.4rem;
+            font-weight: 800;
             letter-spacing: 1px;
+            background: linear-gradient(45deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav a {
-            color: white;
+            color: var(--text-light);
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         nav a:hover {
-            color: #f39c12;
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(27, 54, 93, 0.88), rgba(27, 54, 93, 0.88)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), 
                         url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            color: white;
+            color: var(--text-light);
             text-align: center;
-            padding: 90px 20px 70px;
+            padding: 100px 20px 80px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--danger);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: pulseGlow 2s infinite;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 800;
             margin-bottom: 10px;
+            animation: fadeIn 0.8s ease-out;
         }
 
         .hero .subtitle {
             font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #f39c12;
+            color: var(--accent);
             font-weight: 600;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            color: #e2e8f0;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.05rem;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            color: #94a3b8;
         }
 
-        .hero-tags {
+        /* Stat Counter Bar */
+        .stats-bar {
+            background: var(--secondary);
+            border-radius: 15px;
+            max-width: 950px;
+            margin: -40px auto 40px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+            color: white;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Section Container */
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--accent);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Highlight Special Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            animation: fadeIn 1s ease;
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-content h3 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .highlight-content p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        /* Filter Controls */
+        .filter-container {
             display: flex;
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 35px;
         }
 
-        .tag-special {
-            background: #e74c3c;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #f39c12;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #e67e22;
-        }
-
-        /* Info Lokasi Card */
-        .location-card {
-            background: white;
-            border-left: 5px solid #f39c12;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 2rem auto -1rem;
-            max-width: 1000px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .location-info h3 {
-            color: #1b365d;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .location-info p {
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        /* Layout Utama */
-        .container {
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #1b365d;
-            border-bottom: 3px solid #f39c12;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* Tombol Filter */
         .filter-btn {
-            margin-bottom: 25px;
-        }
-
-        .filter-btn button {
-            background: #1b365d;
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            margin: 4px;
-            border-radius: 20px;
+            background: white;
+            color: var(--primary);
+            border: 2px solid #e2e8f0;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .filter-btn button:hover, 
-        .filter-btn button.active {
-            background: #f39c12;
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: var(--accent);
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
-        /* Kartu Pemain */
-        .grid-players {
+        /* Characters Grid */
+        .grid-characters {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
         }
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        .character-card {
+            background: var(--card-bg);
+            border-radius: 16px;
             padding: 25px 20px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            cursor: pointer;
             position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+            border-color: var(--accent);
         }
 
-        .card-avatar {
-            font-size: 2.5rem;
-            background: #f0f4f8;
-            width: 75px;
-            height: 75px;
-            line-height: 75px;
+        .character-avatar {
+            width: 85px;
+            height: 85px;
+            background: #f1f5f9;
             border-radius: 50%;
-            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2.5rem;
+            border: 3px solid var(--accent);
+            transition: transform 0.3s;
         }
 
-        .card h3 {
-            color: #1b365d;
+        .character-card:hover .character-avatar {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .character-card h3 {
+            color: var(--primary);
             font-size: 1.15rem;
+            font-weight: 700;
         }
 
-        .badge {
+        .badge-role {
             display: inline-block;
             background: #e2e8f0;
-            color: #1b365d;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            color: var(--primary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
             margin: 8px 0;
         }
 
-        /* Badge The Best Player */
-        .best-player-tag {
-            background: linear-gradient(135deg, #f1c40f, #f39c12);
-            color: #1b365d;
-            font-weight: bold;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            margin-top: 8px;
-            display: inline-block;
-            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.4);
-        }
-
-        /* Section Pengalaman Red Sparks */
-        .highlight-box {
-            background: linear-gradient(135deg, #1b365d, #2c3e50);
+        .badge-award {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
             color: white;
-            border-radius: 10px;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-top: 5px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .click-hint {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Modal Dialog Popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
             padding: 30px;
-            margin-bottom: 3rem;
-            text-align: left;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .highlight-box h3 {
-            color: #f39c12;
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            cursor: pointer;
+            color: #64748b;
+            transition: color 0.2s;
         }
 
-        .highlight-box p {
-            color: #ecf0f1;
+        .modal-close:hover {
+            color: var(--danger);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-avatar {
+            width: 90px;
+            height: 90px;
+            background: #f8fafc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 3rem;
+            border: 4px solid var(--accent);
+        }
+
+        .modal-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .modal-stat-item p {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .modal-stat-item h4 {
             font-size: 1rem;
-            line-height: 1.7;
+            color: var(--primary);
         }
 
-        /* Tabel Prestasi */
+        .modal-bio {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* Trophy Table */
         .table-responsive {
             overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
             background: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            border-radius: 8px;
-            overflow: hidden;
         }
 
         th, td {
-            padding: 15px 20px;
+            padding: 16px 20px;
             text-align: left;
+            font-size: 0.95rem;
         }
 
         th {
-            background-color: #1b365d;
+            background-color: var(--primary);
             color: white;
+            font-weight: 600;
         }
 
-        tr:nth-child(even) {
+        tr {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+
+        tr:hover {
             background-color: #f8fafc;
         }
 
-        .highlight-row {
-            background-color: #fff8e7 !important;
-            font-weight: bold;
+        .gold-row {
+            background-color: #fef3c7 !important;
+            font-weight: 600;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 25px 20px;
-            background: #1b365d;
-            color: white;
-            margin-top: 50px;
+        /* Schedule Grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        footer p {
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-
-        footer .address {
-            color: #f39c12;
-            font-size: 0.85rem;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header / Navigasi -->
-    <header>
-        <div class="logo">
-            <h1>VIBRA JUNIOR VC</h1>
-        </div>
-        <nav>
-            <a href="#home">Beranda</a>
-            <a href="#spesial">Pengalaman</a>
-            <a href="#pemain">Pemain</a>
-            <a href="#prestasi">Kejuaraan</a>
-        </nav>
-    </header>
-
-    <!-- Banner Utama -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-tags">
-                <span class="tag-special">🔥 Match Experience vs Red Sparks 🇰🇷</span>
-            </div>
-            <h2>Vibra Junior VC</h2>
-            <div class="subtitle">📍 Sendang Retno, Kec. Sendang Agung, Kab. Lampung Tengah</div>
-            <p>Klub Bola Voli Pembinaan Usia Muda Berprestasi — Menjelajah Laga Internasional dan Mencetak Pemain Berbakat.</p>
-            <a href="#pemain" class="btn">Lihat Skuad Pemain</a>
-        </div>
-    </section>
-
-    <!-- Info Lokasi Klub -->
-    <div class="container" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-        <div class="location-card">
-            <div class="location-info">
-                <h3>📍 Markas & Basecamp Klub</h3>
-                <p><strong>Sendang Retno</strong>, Kecamatan Sendang Agung, Kabupaten Lampung Tengah, Provinsi Lampung.</p>
-            </div>
-            <span class="badge" style="background: #1b365d; color: white;">Lampung Tengah</span>
-        </div>
-    </div>
-
-    <!-- Highlight Pengalaman lawan Red Sparks -->
-    <section id="spesial" class="container">
-        <div class="highlight-box">
-            <h3>🏐 Laga Spesial: Pengalaman Melawan Red Sparks (Korea Selatan)</h3>
-            <p>
-                Salah satu pencapaian dan pengalaman paling berharga bagi skuad <strong>Vibra Junior VC</strong> adalah kesempatan melakoni pertandingan ekshibisi melawan tim papan atas Liga Voli Korea (V-League), <strong>Daejeon JungKwanJang Red Sparks</strong>. Pertandingan ini memberikan motivasi besar serta pengalaman bertaraf internasional bagi para pemain muda dari Lampung Tengah.
-            </p>
-        </div>
-    </section>
-
-    <!-- Skuad Pemain -->
-    <section id="pemain" class="container">
-        <h2 class="section-title">Daftar Skuad Pemain</h2>
-        
-        <!-- Filter Posisi Pemain -->
-        <div class="filter-btn">
-            <button class="active" onclick="filterPemain('all', this)">Semua</button>
-            <button onclick="filterPemain('Spiker', this)">Spiker</button>
-            <button onclick="filterPemain('Setter', this)">Setter</button>
-            <button onclick="filterPemain('Libero', this)">Libero</button>
-        </div>
-
-        <div class="grid-players" id="playerList">
-            <!-- Vaula Rifhatir -->
-            <div class="card Spiker">
-                <div class="card-avatar">🏐</div>
-                <h3>Vaula Rifhatir</h3>
-                <span class="badge">Outside Spiker / Kapten</span>
-                <p>Tinggi: 188 cm</p>
-                <div class="best-player-tag">🏆 The Best Player (MVP)</div>
-            </div>
-
-            <!-- Savenna -->
-            <div class="card Setter">
-                <div class="card-avatar">🏐</div>
-                <h3>Savenna</h3>
-                <span class="badge">Setter</span>
-                <p>Tinggi: 182 cm</p>
-                <div class="best-player-tag">⭐ The Best Setter</div>
-            </div>
-
-            <!-- Rasya Ahmad -->
-            <div class="card Libero">
-                <div class="card-avatar">🏐</div>
-                <h3>Rasya Ahmad</h3>
-                <span class="badge">Libero</span>
-                <p>Tinggi: 175 cm</p>
-                <div class="best-player-tag">🛡️ The Best Defender</div>
-            </div>
-
-            <!-- Alif Rizhqul -->
-            <div class="card Spiker">
-                <div class="card-avatar">🏐</div>
-                <h3>Alif Rizhqul</h3>
-                <span class="badge">Opposite Spiker</span>
-                <p>Tinggi: 190 cm</p>
-                <div class="best-player-tag">🚀 The Best Server</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prestasi & Kejuaraan -->
-    <section id="prestasi" class="container">
-        <h2 class="section-title">Daftar Kejuaraan & Pengalaman</h2>
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tahun</th>
-                        <th>Kejuaraan / Pertandingan</th>
-                        <th>Kategori</th>
-                        <th>Hasil / Peringkat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="highlight-row">
-                        <td>2026</td>
-                        <td>International Friendly Match vs Red Sparks (Korea) 🇰🇷</td>
-                        <td>Ekshibisi Internasional</td>
-                        <td>Pengalaman Berharga ⭐</td>
-                    </tr>
-                    <tr>
-                        <td>2025</td>
-                        <td>Kejuaraan Nasional Junior (Kejurnas U-19)</td>
-                        <td>Nasional U-19</td>
-                        <td>Juara 1 🏆</td>
-                    </tr>
-                    <tr>
-                        <td>2025</td>
-                        <td>Turnamen Voli Lampung Tengah Cup</td>
-                        <td>Antar Klub Kab.</td>
-                        <td>Juara 1 🏆</td>
-                    </tr>
-                    <tr>
-                        <td>2024</td>
-                        <td>Kejuaraan Antar Klub Regional Sumatra</td>
-                        <td>Regional Usia Muda</td>
-                        <td>Runner-Up 🥈</td>
-                    </tr>
-                    <tr>
-                        <td>2024</td>
-                        <td>Piala Bupati Lampung Tengah</td>
-                        <td>Terbuka U-18</td>
-                        <td>Juara 1 🏆</td>
-                    </tr>
-                    <tr>
-                        <td>2023</td>
-                        <td>Piala Gubernur Cup Junior</td>
-                        <td>Provinsi U-17</td>
-                        <td>Juara 1 🏆</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Vibra Junior VC. All Rights Reserved.</p>
-        <p class="address">Sendang Retno, Kec. Sendang Agung, Kab. Lampung Tengah, Lampung</p>
-    </footer>
-
-    <!-- JavaScript (Logika Filter) -->
-    <script>
-        function filterPemain(posisi, element) {
-            const buttons = document.querySelectorAll('.filter-btn button');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                if (posisi === 'all' || card.classList.contains(posisi)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+        .match-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,
